@@ -46,7 +46,7 @@ class SlicerPanel:
 		self.homeDir = os.path.expanduser("~")
 
 		# Load the qt uic form. It _must_ be in ~/.FreeCAD/Mod/FreeCAD-CuraEngine-Plugin, Perhaps there is a better way...
-		self.form = uic.loadUi(self.homeDir + "/.FreeCAD/Mod/FreeCAD-CuraEngine-Plugin/Slicer.ui")
+		self.form = uic.loadUi(os.path.join(os.path.dirname(__file__),"Slicer.ui"))
 
 		# Set the Default Values
 		self.Vars = SliceDef()
