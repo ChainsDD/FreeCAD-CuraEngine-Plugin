@@ -21,7 +21,7 @@
 #*                                                                         *
 #***************************************************************************
 
-import FreeCAD
+import FreeCAD, os
 from SliceVars import *
 from pivy import coin
 
@@ -243,7 +243,7 @@ class PrintBedTaskPanel:
 		self.homeDir = os.path.expanduser("~")
 
 		# Load the qt uic form. It _must_ be in ~/.FreeCAD/Mod/FreeCAD-CuraEngine-Plugin, Perhaps there is a better way...
-		self.form = uic.loadUi(self.homeDir + "/.FreeCAD/Mod/FreeCAD-CuraEngine-Plugin/MachineDef.ui")
+		self.form = uic.loadUi(os.path.join(os.path.dirname(__file__),"MachineDef.ui"))
 
 		self.form.doubleSpinBox_1.setValue(readSetting("machinex"))
 		self.form.doubleSpinBox_2.setValue(readSetting("machiney"))
